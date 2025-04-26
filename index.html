@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Lyme reassessment Maps</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #4c5caf;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        h1.section
+        {
+            background-color: #4c5caf;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+        li {
+            margin: 2rem 0 0.5rem 0;
+        }
+        ul.stats {
+            list-style-type: disc;
+            padding: 0;
+            margin: 0;
+        }
+        li.stats {
+            margin: 0;
+        }
+        a.list {
+            text-decoration: none;
+            color: #4c5caf;
+            font-size: 1.2rem;
+            display: block;
+            padding: 0.5rem;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        a.list:hover {
+            background-color: #4c5caf;
+            color: white;
+        }
+        div.summary {
+            margin: 2rem auto;
+            max-width: 600px;  
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', ' G-4LFCPH1GEB');
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Old Lyme Reassessment Maps</h1>
+    </header>
+    
+    <div class="summary"><b>Notes: </b>The maps below are based on the public data from <a href="https://gis.vgsi.com/oldlymect">VGSI</a> for Old Lyme, CT.
+        <br>
+        The data was collected around April 22, 2025, and may not cover every property in the town.  I
+        also can't vouch for the accuracy of any of the data in the database, or presented in the maps.
+        Use it at your own risk ;-).
+        <p>
+            Clicking on the titles below will bring up an interactive map that you can zoom in and out of.
+            Each of the properties will have a pop-up with more details if you click on a dot.
+        </p>
+        <p>
+            A few statistics about the data:
+            <ul class="stats">
+                <li class="stats">The average appraisal value in 2024 is $641,281 (median: $546,000)</li>
+                <li class="stats">The average building is 1776sqft (median: 1478sqft)</li>
+                <li class="stats">The average lot size is 2.33ac (median: 0.56ac)</li>
+                <li class="stats">The average appraisal value increased by 60.6% between 2023 and 2024 (median: 69.3%)</li>
+                <li class="stats">The average land appraisal increased by 49% between 2023 and 2024 (median: 43.5%)</li>
+                <li class="stats">The average improvements appraisal increased by 72.6% between 2023 and 2024 (median: 85.3%)</li>
+                </ul>
+        </p>
+    </div>
+    <ul>
+        <li><a href="sales_by_year_map.html" class="list">Sales By Year Map</a></li>
+        <img src="sales_by_year.png" style="width: 30vw; display: block; margin: 0 auto;" />
+        <br>
+        This map plots a dot for a house sold in Old Lyme between 2020 and 2025.  The color 
+        represents the year the property was sold.  
+        I've excluded $0 and $1 sales, and I only looked at the most recent sale.  So if a 
+        house sold in 2021 for $300,000 and then the property was transferred to a trust
+        for $0 in 2022, it would be excluded from this map.
+        <li><a href="lot_size_map.html" class="list">Lot Size Map</a></li>
+        <img src="lot_size.png" style="width: 30vw; display: block; margin: 0 auto;" />
+        <br>
+        This map breaks the lot sizes up into 10 buckets and gives each a color. The buckets are:
+        <br>
+        0ac, 0.1ac, 0.25ac, 0.5ac, 0.75ac, 1.0ac, 2.0ac, 4.0ac, 5.0ac, >5.0ac
+        <li><a href="total_value_increase_map.html" class="list">Total Value Increase Map</a></li>
+        <img src="total_value.png" style="width: 30vw; display: block; margin: 0 auto;" />
+        This map plots the increase in the total appraisal value (land + improvements) from 2023 to 2024.
+        the data is grouped into buckets like: decrease - 0%, 1-10%, 11-20% ... 90-100%, >100%.  
+        <li><a href="neighborhood_map.html" class="list">Neighborhood Map</a></li>
+        <img src="neighborhood.png" style="width: 30vw; display: block; margin: 0 auto;" />
+        This is a plot of the various "neighborhoods" in Old Lyme.  Each property record has a Neighborhood code
+        associated with it.  Each code has a different color on the map.  This becomes interesting when you
+        compare it with the "Land Value Increase Map" below.  There appears to be a correlation between 
+        the neighborhood and the increase in land value.
+        <li><a href="land_value_increase_map.html" class="list">Land Value Increase Map</a></li>
+        <img src="land_value.png" style="width: 30vw; display: block; margin: 0 auto;" />
+        This map shows the percentage increase (or decrease) in the land value of a property from 2023 to 2024.
+        This data is not bucketed, but rather it's the colors are normalized from -100% (red) - 100% (green).  
+        <li><a href="price_per_acre_map.html" class="list">Price Per Acre Map</a></li>
+        <img src="price_per_acre.png" style="width: 30vw; display: block; margin: 0 auto;" />
+        This map plots the price per acre of land.  The data is bucketed into groups of $100,000 per acre,
+        and then a catch-all for land above $1,000,000 per acre.  Properties close to the water clearly
+        stand out.
+        <li><a href="improvements_value_increase_map.html" class="list">Improvements Value Increase Map</a></li>
+        <img src="improvements.png" style="width: 30vw; display: block; margin: 0 auto;" />
+        The improvements value map shows the percentage increase (or decrease) in the improvements (the house)
+        on a property between 2023 and 2024.  This data is bucketed into groups of 10% with a decrease-0% bucket
+        and a >100% bucket on either end.
+        <li><a href="appraisal_map.html" class="list">Appraisal Map</a></li>
+        <img src="appraisal.png" style="width: 30vw; display: block; margin: 0 auto;" />
+        This map shows the appraisal value of the properties.  The data is normalized between
+        yellow (the lowest priced property) and dark red (the highest priced property).  This map only
+        includes records where the Description contains "Single" or "SFR" (Single Family Residence).
+        When it included the schools at multiple millions of dollars, the data got skewed.
+        </ul>
+
+        <h1 class="section">Filtered Data</h1>
+        <div class="summary">
+            <p>
+                The maps below look at properties that are:
+                <ul class="stats">
+                 <li class="stats">2,200 to 4,000 square feet
+                 <li class="stats">0.5 to 1.5 acres
+                 <li class="stats">less than $1.25M
+                </ul>
+            </p>
+        </div>
+        <ul>
+        <li><a href="filtered_appraisal_map.html" class="list">Filtered Appraisal Map</a></li>
+        <img src="filtered_appraisal.png" style="width: 30vw; display: block; margin: 0 auto;" />
+        This map shows the appraisal value of the properties that match the filter above.  The data
+        is normalized between yellow (the lowest priced property) and dark red (the highest priced property).
+
+        <li><a href="total_value_increase_filtered_map.html" class="list">Filtered Total Value Increase</a></li>
+        <img src="total_value_increase_filtered.png" style="width: 30vw; display: block; margin: 0 auto;" />
+        This map shows the increase in the total appraisal value (land + improvements) from 2023 to 2024
+        for the properties that match the filter above.  The data is grouped into buckets like:
+        decrease - 0%, 1-10%, 11-20% ... 90-100%, >100%.
+    </ul>
+    <footer>
+    </footer>
+</body>
+</html>
